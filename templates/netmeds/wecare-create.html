@@ -109,7 +109,7 @@
 
 <body>
     <div class="container">
-        <div style="width: 359px;">
+        <div id="main-div" style="width: 359px;">
             <div id="html-content-holder"
                 style="width: 359px; height: 624px; background-image: url({{img}});background-size: cover; background-position: center; background-repeat: no-repeat; object-fit: contain;">
 
@@ -131,8 +131,10 @@
                 style="display: none;">
 
             <button class="btn" type="button" onclick="downloadImage()">Download Image</button>
-        </div>
+            <div id="download-a-div">
 
+            </div>
+        </div>
     </div>
 </body>
 
@@ -208,7 +210,9 @@
                 var link = document.createElement('a');
                 link.download = 'wecare-netmeds.jpeg';
                 link.href = resp.img;
+                link.innerHTML = "Click here if not downloaded automatically";
                 link.click();
+                document.getElementById("download-a-div").append(link);
             }
         });
 
