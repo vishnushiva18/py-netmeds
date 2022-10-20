@@ -1,7 +1,7 @@
 from flask import (render_template, request,
                    url_for, redirect)
 from pkg_imp import app, requests, MONGO_CSQUARE
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ExifTags
 import base64, io
 
 @app.route('/netmeds/wecare', methods=['GET'])
@@ -66,6 +66,18 @@ def netmeds_wecare_lang_create(lang):
     frame = Image.open(io.BytesIO(frame))
     user = base64.b64decode(d['user_img'].split(';')[1].split(',')[1])
     user = Image.open(io.BytesIO(user))
+    exif = None
+    if user._getexif():
+        exif=dict((ExifTags.TAGS[k], v) for k, v in user._getexif().items() if k in ExifTags.TAGS)
+
+    if exif and exif.get('Orientation'):
+        orientation = exif.get('Orientation')
+        if orientation == 8:
+            user=user.rotate(90, expand=True)
+        elif orientation == 3:
+            user=user.rotate(180, expand=True)
+        elif orientation == 6:
+            user=user.rotate(270, expand=True)
 
     finalImg = Image.new('RGB', frame.size, color = 'white')
     canvas = ImageDraw.Draw(finalImg)
