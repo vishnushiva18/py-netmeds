@@ -5,14 +5,35 @@ from pkg_imp import app, requests, MONGO_CSQUARE
 @app.route('/netmeds/wecare', methods=['GET'])
 def netmeds_wecare():
     lang = [{
-        't': "Hindi",
+        't': "Hindi | हिन्दी",
         'h': "/netmeds/wecare/hindi"
+    },
+    {
+        't': "Marathi | मराठी",
+        'h': "/netmeds/wecare/marathi"
+    },
+    {
+        't': "Tamil | தமிழ்",
+        'h': "/netmeds/wecare/tamil"
+    },
+    {
+        't': "Telugu | తెలుగు",
+        'h': "/netmeds/wecare/telugu"
+    },
+    {
+        't': "Malayalam | മലയാളം",
+        'h': "/netmeds/wecare/malayalam"
+    },
+    {
+        't': "Bangla | বাংলা",
+        'h': "/netmeds/wecare/bangla"
+    },
+    {
+        't': "Odia | ଓଡିଆ",
+        'h': "/netmeds/wecare/odia"
     },{
         't': "English",
         'h': "/netmeds/wecare/english"
-    },{
-        't': "Malayalam",
-        'h': "/netmeds/wecare/malayalam"
     }]
 
     return render_template('netmeds/wecare.html', lang=lang)
