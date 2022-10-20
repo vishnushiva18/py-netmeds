@@ -3,7 +3,7 @@ from flask import (Flask,session, flash, jsonify, redirect, render_template, req
 
 from pkg_imp import app
 
-from controllers netmeds
+from controllers import netmeds
 
 from werkzeug.security import safe_join
 import os
