@@ -212,6 +212,7 @@
                 link.href = resp.img;
                 link.innerHTML = "Click here if not downloaded automatically";
                 link.click();
+                document.getElementById("download-a-div").innerHTML = "";
                 document.getElementById("download-a-div").append(link);
             }
         });
