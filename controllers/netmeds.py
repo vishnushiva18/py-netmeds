@@ -54,7 +54,7 @@ def netmeds_wecare_lang_create(lang):
     d = request.json
     texts = [d['name'], d['shop'], d['phone'], d['location']]
     
-    fontFile = "assets/fonts/OpenSans-BoldItalic.ttf"
+    fontFile = "./assets/fonts/OpenSans-BoldItalic.ttf"
     font = ImageFont.truetype(fontFile, size=34)
     frame = Image.open(f".{frame}")
     user = base64.b64decode(d['user_img'].split(';')[1].split(',')[1])
