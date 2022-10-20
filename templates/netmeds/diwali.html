@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netmeds - Wecare</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+        }
+
+        .container img {
+            width: 375px;
+            height: auto;
+        }
+
+        .container .btndiv {
+            position: absolute;
+            /* top: 50%; */
+            top: 403px;
+            left: 180px;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            /* background-color: #555; */
+            color: white;
+            font-size: 16px;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .container .btn {
+            background-color: #ffffff;
+            /* color: white; */
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            /* border-radius: 5px; */
+            text-align: center;
+            margin-top: 5px;
+            width: 100%;
+            font-weight: 700;
+        }
+
+        .container .btn:hover {
+            background-color: #d8cdcd;
+        }
+
+        .div-a-list {
+            width: 100%;
+            border-bottom: inset;
+            /* height: 23px; */
+            background-color: #ffffff;
+            /* padding: 3px 0 3px 0; */
+            font-weight: 900;
+        }
+
+        .div-a-list:hover {
+            background-color: #f3eded;
+        }
+
+        .div-a {
+            text-decoration: none;
+            font-size: 12px;
+            color: black;
+        }
+
+        .user-input {
+            width: 142px;
+            height: 14px;
+            background-color: #82008e;
+            color: #ffffff;
+            outline: 0;
+            /* border-width: 0 0 1px 0; */
+            /* border-color: #ffffff; */
+            text-align: center;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <div style="width: 359px;">
+                <img src="/assets/images/diwali-1.jpg" alt="Snow" style="width:100%">
+                <div class="btndiv" id="div-user-input" style="top: 454px; left: 179px;">
+                    <input type="text" id="input-emp-code" class="user-input">
+                    <div class="div-a-list" style="margin-top: 10px;">
+                        <!-- <a href="/netmeds/diwali/create" class="div-a" >Next</a> -->
+                        <button class="btn" type="button" onclick="next()">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function next(){
+        empId = document.getElementById("input-emp-code").value.trim();
+        if(empId == ""){
+            alert("Please enter your Employee code");
+            return;
+        }
+
+        d = {
+            'empId': empId
+        }
+
+        $.ajax({
+            url: '/netmeds/diwali',
+            type: 'post',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(d),
+            success: function (resp) {
+                window.location = "/netmeds/diwali/create/" + empId;
+            }
+        });
+    }
+</script>
+
+</html>
