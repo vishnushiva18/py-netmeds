@@ -55,11 +55,17 @@ def netmeds_wecare_lang_create(lang):
     texts = [d['name'], d['shop'], d['phone'], d['location']]
     
     fontFile = "./assets/fonts/OpenSans-BoldItalic.ttf"
+    print(fontFile)
     with open(fontFile, 'rb') as f:
         fontFile = f.read()
 
+    frame = f".{frame}"
+    print(frame)
+    with open(frame, 'rb') as f:
+        frame = f.read()
+
     font = ImageFont.truetype(io.BytesIO(fontFile), size=34)
-    frame = Image.open(f".{frame}")
+    frame = Image.open(io.BytesIO(frame))
     user = base64.b64decode(d['user_img'].split(';')[1].split(',')[1])
     user = Image.open(io.BytesIO(user))
 
