@@ -1,6 +1,8 @@
 from flask import (render_template, request,
                    url_for, redirect)
 from pkg_imp import app, requests, MONGO_CSQUARE
+from PIL import Image, ImageDraw, ImageFont
+import base64, io
 
 @app.route('/netmeds/wecare', methods=['GET'])
 def netmeds_wecare():
@@ -43,10 +45,41 @@ def netmeds_wecare_lang(lang):
     img = f"/assets/images/WeCare-Diwali_{lang}.png"
     return render_template('netmeds/wecare-create.html', lang=lang, img=img)
 
-@app.route('/netmeds/wecare/<lang>/create', methods=['GET'])
+@app.route('/netmeds/wecare/<lang>/create', methods=['GET', 'POST'])
 def netmeds_wecare_lang_create(lang):
-    img = f"/assets/images/WeCare-Diwali_{lang}.png"
-    return render_template('netmeds/wecare-create.html', lang=lang, img=img)
+    frame = f"/assets/images/WeCare-Diwali_{lang}.png"
+    if request.method == "GET":
+        return render_template('netmeds/wecare-create.html', lang=lang, img=frame)
+
+    d = request.json
+    texts = [d['name'], d['shop'], d['phone'], d['location']]
+    
+    fontFile = "assets/fonts/OpenSans-BoldItalic.ttf"
+    font = ImageFont.truetype(fontFile, size=34)
+    frame = Image.open(f".{frame}")
+    user = base64.b64decode(d['user_img'].split(';')[1].split(',')[1])
+    user = Image.open(io.BytesIO(user))
+
+    finalImg = Image.new('RGB', frame.size, color = 'white')
+    canvas = ImageDraw.Draw(finalImg)
+    
+    user = user.resize((276, 276))
+    finalImg.paste(user, (116, 1552))
+    finalImg.paste(frame, (0, 0), frame)
+
+    tmpY = 1540
+    for t in texts:
+        canvas.text((420, tmpY), t, font=font, fill='#ffffff')
+        tmpY += 55
+
+
+    bufferedFinal = io.BytesIO()
+    finalImg.save(bufferedFinal, format="JPEG")
+    final_str = bytes("data:image/jpeg;base64,", encoding='utf-8') + base64.b64encode(bufferedFinal.getvalue())
+
+    d['user_img'] = None
+    MONGO_CSQUARE.DB["netmeds_microsite_log"].insert_one(d)
+    return {'img': final_str.decode("utf-8")}
 
 @app.route('/netmeds/diwali', methods=['GET', 'POST'])
 def netmeds_diwali():

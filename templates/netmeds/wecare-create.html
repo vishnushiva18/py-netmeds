@@ -139,6 +139,9 @@
 <script type="text/javascript" src="https://www.myecard.in/netmeds/asset/js/dom-to-image.js"></script>
 <script>
     var imgUploaded = false;
+    var _usrImg = null;
+    var _lang = "{{lang}}";
+
     function imgBrows() {
         const fileInput = document.getElementById("user-img-brows");
         fileInput.click();
@@ -151,6 +154,7 @@
                 $('#user-img').attr('src', e.target.result);
                 $('#upload-img').hide();
                 imgUploaded = true;
+                _usrImg = e.target.result;
             };
             reader.readAsDataURL(input.files[0]);
         }
@@ -169,7 +173,8 @@
             name: document.getElementById("input-name").value.trim(),
             shop: document.getElementById("input-shop").value.trim(),
             phone: document.getElementById("input-phone").value.trim(),
-            location: document.getElementById("input-location").value.trim()
+            location: document.getElementById("input-location").value.trim(),
+            user_img: _usrImg
         }
 
         if(!imgUploaded){
@@ -193,6 +198,21 @@
             return;
         }
 
+        $.ajax({
+            url: '/netmeds/wecare/' + _lang + '/create',
+            type: 'post',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(d),
+            success: function (resp) {
+                var link = document.createElement('a');
+                link.download = 'wecare-netmeds.jpeg';
+                link.href = resp.img;
+                link.click();
+            }
+        });
+
+        return;
         updateData(d);
 
         var node = document.getElementById('html-content-holder');
