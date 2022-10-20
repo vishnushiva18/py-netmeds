@@ -128,6 +128,7 @@
                 style="display: none;">
 
             <button class="btn" type="button" onclick="downloadImage()">Download Image</button>
+            <div id="download-a-div"></div>
         </div>
 
     </div>
@@ -137,6 +138,7 @@
 <script>
     var imgUploaded = false;
     var _empId = "{{empid}}";
+    var _usrImg = null;
 
     function imgBrows() {
         const fileInput = document.getElementById("user-img-brows");
@@ -150,6 +152,7 @@
                 $('#user-img').attr('src', e.target.result);
                 $('#upload-img').hide();
                 imgUploaded = true;
+                _usrImg = e.target.result;
             };
             reader.readAsDataURL(input.files[0]);
         }
@@ -166,7 +169,8 @@
         var d = {
             empId: _empId,
             campaign: "diwali",
-            name: document.getElementById("input-name").value.trim()
+            name: document.getElementById("input-name").value.trim(),
+            user_img: _usrImg
         }
 
         if(!imgUploaded){
@@ -178,6 +182,24 @@
             return;
         }
 
+        $.ajax({
+            url: '/netmeds/diwali/create/' + _empId,
+            type: 'post',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(d),
+            success: function (resp) {
+                var link = document.createElement('a');
+                link.download = 'diwali-netmeds.jpeg';
+                link.href = resp.img;
+                link.innerHTML = "Click here if not downloaded automatically";
+                link.click();
+                document.getElementById("download-a-div").innerHTML = "";
+                document.getElementById("download-a-div").append(link);
+            }
+        });
+
+        return;
         updateData(d);
 
         var node = document.getElementById('html-content-holder');
