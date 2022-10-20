@@ -1,0 +1,160 @@
+  .jsid-login {
+    max-width:700px;
+    width:90%;
+    background-color:#bfdfdc0d;
+    border-radius:4px;
+    transform:translate(-50%, -50%);
+    position:absolute;
+    top:50%;
+    left:50%;
+    /* box-shadow:3px 3px 4px rgba(0,0,0,0.2); */
+    box-shadow: 1px 2px 4px 4px rgb(0 0 0 / 20%);
+  }
+
+  .login-dark {
+    background:#475d62;
+  }
+  
+  .login-dark form {
+    max-width:436px;
+    width:90%;
+    background-color:#bfdfdc0d;
+    padding:40px;
+    border-radius:4px;
+    transform:translate(-50%, -50%);
+    position:absolute;
+    top:50%;
+    left:50%;
+    color:#fff;
+    /* box-shadow:3px 3px 4px rgba(0,0,0,0.2); */
+    box-shadow: 1px 2px 4px 4px rgb(0 0 0 / 20%);
+  }
+  
+  .login-dark .illustration {
+    text-align:center;
+    padding:15px 0 20px;
+    font-size:100px;
+    color:#2980ef;
+  }
+  
+  .login-dark form .form-control {
+    background:none;
+    border:none;
+    border-bottom:1px solid #434a52;
+    border-radius:0;
+    box-shadow:none;
+    outline:none;
+    color:black;
+  }
+  
+  .login-dark form .btn-primary {
+    background:#214a80;
+    border:none;
+    border-radius:4px;
+    padding:11px;
+    box-shadow:none;
+    margin-top:26px;
+    text-shadow:none;
+    outline:none;
+  }
+  
+  .login-dark form .btn-primary:hover, .login-dark form .btn-primary:active {
+    background:#214a80;
+    outline:none;
+  }
+  
+  .login-dark form .forgot {
+    display:block;
+    text-align:center;
+    font-size:12px;
+    color:#6f7a85;
+    opacity:0.9;
+    text-decoration:none;
+  }
+  
+  .login-dark form .forgot:hover, .login-dark form .forgot:active {
+    opacity:1;
+    text-decoration:none;
+  }
+  
+  .login-dark form .btn-primary:active {
+    transform:translateY(1px);
+  }
+  
+  .error {
+      font-size: 10px;
+      color: red;
+  }
+
+  .disabled-input {
+      background-color: gray !important;
+      pointer-events: none;
+      color: #e7edee !important;
+  }
+  
+  .login-dark form .change {
+    display:block;
+    text-align:right;
+    font-size:12px;
+    color:#6f7a85;
+    opacity:0.9;
+    text-decoration:none;
+  }
+
+  .custom-form-input {
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.info {
+  font-size: 12px;
+  color: green;
+}
+
+@font-face {
+  font-family: 'EntypoRegular' ;
+  src: url('../assets/fonts/Entypo.eot') format('embedded-opentype'),
+  url('../assets/fonts/Entypo.otf') format('opentype');
+} 
+
+.jio-vc-char {
+  font-size: 90px;
+  font-weight: 700;
+  font-family: EntypoRegular;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  /* margin-top: -15px; */
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 30px;
+  height: 30px;
+  /* margin: 16px; */
+  border-radius: 50%;
+  border: 4px solid #fff;
+  border-color: #4269b1 #73def7 #f89c3f #b16b47;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: prod-lt-aks
+  name: csquare-jio-sign-deployment
+spec:
+  selector:
+    matchLabels:
+      app: csquare-jio-sign
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%    
+  template:
+    metadata:
+      labels:
+        app: csquare-jio-sign      
+    spec:
+      containers:
+      - name: csquare-jio-sign
+        image: livetracklcdocker.azurecr.io/csquare-jio-sign:#{Build.BuildId}#
+        ports:
+        - containerPort: 5000
+        resources:
+          limits:
+            cpu: 0.5     
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: csquare-jio-sign
+  namespace: prod-lt-aks
+  name: csquare-jio-sign-service
+  annotations: 
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+spec:
+  type: LoadBalancer
+  #loadBalancerIP: 10.3.2.35
+  ports:
+  - port: 5000
+    targetPort: 5000
+  selector:
+    app: csquare-jio-sign
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: csquare-jio-sign-hpa
+  namespace: prod-lt-aks
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: csquare-jio-sign-deployment
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 60

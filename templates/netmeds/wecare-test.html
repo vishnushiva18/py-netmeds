@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://www.myecard.in/netmeds/img/logo/ecard.png" type="image/png" />
+    <title>My eCard</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://use.typekit.net/rpn7icp.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
+    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.js"></script> imp imp satish -->
+
+    <!-- <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script> imp imp -->
+
+    <!-- <script src="https://unpkg.com/konva@4.0.5/konva.min.js"></script> -->
+
+
+    <script type="text/javascript" src=""></script>
+    <script type="text/javascript" src="https://www.myecard.in/netmeds/asset/js/dom-to-image.js"></script>
+    <script type="text/javascript" src="https://www.myecard.in/netmeds/asset/js/FileSaver.js"></script>
+    <script type="text/javascript" src="https://www.myecard.in/netmeds/asset/js/Blob.js"></script>
+
+    <script>try { Typekit.load({ async: true }); } catch (e) { }</script>
+
+    <link href="https://www.myecard.in/netmeds/css/app.bf712ee2ed3f3a6bec086e41d9862198.css" type="text/css"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="">
+
+    <link rel="stylesheet" type="text/css" href="">
+
+    <script>
+        $("#myImg").hide();
+        $(function () {
+            $(":file").change(function () {
+
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+        });
+        function imageIsLoaded(e) {
+            $("#myImg").show();
+            $('#myImg').attr('src', e.target.result);
+        };
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet" />
+    <style type="text/css">
+        .font_bad-script {
+            font-family: 'Bad Script';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet" />
+    <style type="text/css">
+        .font_barrio {
+            font-family: 'Barrio';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet" />
+    <style type="text/css">
+        .font_berkshire-swash {
+            font-family: 'Berkshire Swash';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet" />
+    <style type="text/css">
+        .font_courgette {
+            font-family: 'Courgette';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Euphoria+Script" rel="stylesheet" />
+    <style type="text/css">
+        .font_euphoria-script {
+            font-family: 'Euphoria Script';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Frijole" rel="stylesheet" />
+    <style type="text/css">
+        .font_frijole {
+            font-family: 'Frijole';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet" />
+    <style type="text/css">
+        .font_gloria-hallelujah {
+            font-family: 'Gloria Hallelujah';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet" />
+    <style type="text/css">
+        .font_great-vibes {
+            font-family: 'Great Vibes';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" />
+    <style type="text/css">
+        .font_lato {
+            font-family: 'Lato';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" />
+    <style type="text/css">
+        .font_lobster {
+            font-family: 'Lobster';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Montez" rel="stylesheet" />
+    <style type="text/css">
+        .font_montez {
+            font-family: 'Montez';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas" rel="stylesheet" />
+    <style type="text/css">
+        .font_mountains-of-christmas {
+            font-family: 'Mountains Of Christmas';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+    <style type="text/css">
+        .font_open-sans {
+            font-family: 'Open Sans';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" />
+    <style type="text/css">
+        .font_pacifico {
+            font-family: 'Pacifico';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet" />
+    <style type="text/css">
+        .font_permanent-marker {
+            font-family: 'Permanent Marker';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet" />
+    <style type="text/css">
+        .font_playfair-display {
+            font-family: 'Playfair Display';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Rancho" rel="stylesheet" />
+    <style type="text/css">
+        .font_rancho {
+            font-family: 'Rancho';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet" />
+    <style type="text/css">
+        .font_shadows-into-light {
+            font-family: 'Shadows Into Light';
+        }
+    </style>
+
+
+    <style type="text/css">
+        .font-face {
+            font-family: 'Futura Md BT';
+            src: url('../fonts/futura-medium-bt.ttf') format('ttf'),
+
+                font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+
+    <link href="//db.onlinewebfonts.com/c/e55e9079ee863276569c8a68d776ef04?family=Futura+Md+BT" rel="stylesheet"
+        type="text/css" />
+    <style type="text/css">
+        @font-face {
+            font-family: "Futura Md BT";
+            src: url("http://db.onlinewebfonts.com/t/e55e9079ee863276569c8a68d776ef04.eot");
+            /* IE9*/
+            src: url("http://db.onlinewebfonts.com/t/e55e9079ee863276569c8a68d776ef04.eot?#iefix") format("embedded-opentype"),
+                /* IE6-IE8 */
+                url("http://db.onlinewebfonts.com/t/e55e9079ee863276569c8a68d776ef04.woff2") format("woff2"),
+                /* chrome firefox */
+                url("http://db.onlinewebfonts.com/t/e55e9079ee863276569c8a68d776ef04.woff") format("woff"),
+                /* chrome firefox */
+                url("http://db.onlinewebfonts.com/t/e55e9079ee863276569c8a68d776ef04.ttf") format("truetype"),
+                /* chrome firefox opera Safari, Android, iOS 4.2+*/
+                url("http://db.onlinewebfonts.com/t/e55e9079ee863276569c8a68d776ef04.svg#Futura Md BT") format("svg");
+            /* iOS 4.1- */
+        }
+    </style>
+
+    <style type="text/css">
+        #html-content-holder11 {
+            /* overflow: scroll; 
+            width: 875px;
+            height: 400px; */
+        }
+
+        #html-content-holder.panel {
+
+            /* width: 353px;
+            height: 500px; */
+
+            width: 380px;
+            height: 650px;
+
+            position: relative;
+            object-fit: contain;
+            /* max-width: 277px;
+            max-height: 389px; */
+
+        }
+
+        /* #html-content-holder.panel.panel-default {
+  
+            width: 277px;
+            height: 389px; 
+            object-fit: cover;
+            /* max-width: 277px;
+            max-height: 389px; /
+            object-fit: contain;
+            overflow: hidden;
+          
+        } */
+
+        #content-1 {
+            display: flex;
+        }
+
+        .c-ecard__message {
+            width: 100%;
+            height: 100%;
+        }
+
+        .mobile {
+            color: #0b5191 !important;
+        }
+
+
+        @media only screen and (max-width: 1750px) {
+            .c-ecard__message {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                bottom: 2%;
+            }
+        }
+
+
+
+        #canvas {
+            background: #ABABAB;
+            position: relative;
+            height: 352px;
+            width: 512px;
+            z-index: 1;
+        }
+
+        .column img {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        .prevcard img {
+            width: 100%;
+        }
+
+        .btn-file {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+
+        .labl_btn {
+            background: #007bff;
+            color: white;
+            padding: 6px;
+            border-radius: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .labl_btn_gren {
+            background: green;
+            color: white;
+            padding: 6px;
+            border-radius: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .clinic,
+        .name {
+            font-family: "Futura Md BT" !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="zxx" class="no-js">
+
+    <head>
+        <!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Favicon-->
+        <link rel="shortcut icon" href="https://www.myecard.in/netmeds/img/logo/ecard.png" type="image/png" />
+        <!-- Author Meta -->
+        <meta name="author" content="colorlib">
+        <!-- Meta Description -->
+        <meta name="description" content="">
+        <!-- Meta Keyword -->
+        <meta name="keywords" content="">
+        <!-- meta character set -->
+        <meta charset="UTF-8">
+        <!-- Site Title -->
+        <title>My eCard</title>
+
+
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://www.myecard.in/netmeds/css1/linearicons.css">
+        <link rel="stylesheet" href="https://www.myecard.in/netmeds/css1/font-awesome.min.css">
+        <link rel="stylesheet" href="https://www.myecard.in/netmeds/css1/bootstrap.css">
+        <link rel="stylesheet" href="https://www.myecard.in/netmeds/css1/animate.min.css">
+        <link rel="stylesheet" href="https://www.myecard.in/netmeds/css1/owl.carousel.css">
+        <link rel="stylesheet" href="https://www.myecard.in/netmeds/css1/main.css">
+        <style type="text/css">
+            @media only screen and (max-width: 600px) {
+
+                #step {
+                    width: 100% !important;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header id="header">
+            <div class="container main-menu">
+                <div class="row align-items-center justify-content-between d-flex">
+                    <div id="logo">
+                        <a href="https://www.myecard.in/netmeds/Card/get_opd"><img
+                                src="https://www.myecard.in/netmeds/img/logo/netmeds.png"
+                                style="width: 150px; height: 50px;" alt="" title="" /></a>
+                    </div>
+                    <nav id="nav-menu-container">
+                        <ul class="nav-menu">
+                            <li><a href="https://www.myecard.in/netmeds/Card/get_opd">Home</a></li>
+
+                            <!-- <li><a href="">IOS</a></li> -->
+
+                            <!--  <li><a href="">Contact</a></li> -->
+                            <li>
+                                <div class="btn-group user-helper-dropdown">
+                                    <i class="material-icons2" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="true"> <i class="fa fa-user-circle" aria-hidden="true"
+                                            style="font-size:25px !important;">12345</i></i>
+                                    <ul class="dropdown-menu pull-right">
+                                        <!-- <li><a href="" style="color:black;"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;Login / Register</a></li> -->
+
+                                        <!-- <li><a href="" style="color:black;"><i class="fa fa-lock" aria-hidden="true"></i>&nbsp;&nbsp;Change Password</a></li> -->
+
+                                        <li><a href="https://www.myecard.in/netmeds/Ecard/logout"
+                                                style="color:black;"><i class="fa fa-sign-out"
+                                                    aria-hidden="true"></i>&nbsp;&nbsp;Logout</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav><!-- #nav-menu-container -->
+                </div>
+            </div>
+        </header>
+
+        <!-- Start fact of Information -->
+        <div id="app" style="background: #F2F0E5; margin-top: 150px;">
+            <div id="card">
+                <div class="container">
+                    <div class="build-card-container">
+                        <div class="build-card-container__card-row">
+                            <div class="build-card-container__left">
+                                <div class="build-card-container__card-preview js-disable-controls">
+                                    <div id="html-content-holder11">
+                                        <div id="content"></div>
+
+                                        <div class="panel panel-default" v-bind:style="stylesBackgroundImage"
+                                            style="background-image: url(https://www.myecard.in/netmeds/uploads/images/netmeds_square.jpg); background-size: cover; background-position: center; background-repeat: no-repeat; object-fit: contain;"
+                                            id="html-content-holder">
+
+                                            <!-- <div class="panel panel-default" style="" id="html-content-holder2" v-bind:style="stylesBackgroundImage">
+
+                                    <img src="" alt="Image" class="panel panel-default" id="html-content-holder" > -->
+
+                                            <!-- <div v-bind:style="stylesFontSize">
+                                        <p v-bind:style="stylesMessage" class="c-ecard__message"
+                                           style="overflow: hidden; position: absolute; width: 69.7%; max-width: 69.7%; height: 7.3%; left: 15.1%; top: 92.8%;"
+                                           v-html="(company)"></p>
+                                    </div> -->
+
+                                            <div id="content-3"></div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <a href="https://www.myecard.in/netmeds/Card/pledge"
+                                    style="text-align: center; display: block;"><button
+                                        class="btn btn-primary">Back</button></a>
+                            </div>
+
+                            <div class="build-card-container__card-form">
+                                <form name="add-message-front" method="POST" action="">
+                                    <input type="hidden" name="_token" value="SuYgxJvQLMDHjsAkTZiBQxdH3XAjdyWzQ4w3EqjZ">
+                                    <div class="build-card-additional">
+                                        <div class="build-card-additional__message-form">
+                                            <!-- <h3 class="c-card-content-builder__title">Greeting Card</h3> -->
+                                            <div class="row" syle="margin-top: 20px;">
+                                                <div class="col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="company" class="labl_btn">Shop Name</label>
+                                                        <input type="text" class="form-control" id="company"
+                                                            name="company" value="" v-model="company" />
+                                                    </div>
+
+                                                    <!-- <div class="form-group">
+                                                            <label for="mobile">Mobile</label>
+                                                            <input type="text" class="form-control" id="mobile" name="mobile" value="" v-model="mobile" />
+                                                        </div> -->
+
+                                                    <div class="form-group">
+                                                        <label for="clinic" class="labl_btn_gren">Pharmacist
+                                                            Name</label>
+                                                        <input type="text" class="form-control" id="clinic"
+                                                            name="clinic" value="" v-model="clinic" />
+                                                    </div>
+
+                                                    <!-- <div class="form-group">
+                                                            <label for="days">Days</label>
+                                                            <input type="text" class="form-control" id="days" name="days" value="" v-model="days" />
+                                                        </div>
+                                                        
+                                                        <div class="form-group">
+                                                            <label for="time">Time</label>
+                                                            <input type="text" class="form-control" id="time" name="time" value="" v-model="time" />
+                                                        </div> -->
+
+                                                    <!-- <div class="form-group">
+                                                            <label for="merchant" class="labl_btn_gren">Merchant ID</label>
+                                                            <input type="text" class="form-control" id="merchant" name="merchant" value="" required />
+                                                        </div> -->
+
+                                                    <div class="form-group">
+                                                        <!-- <label for="merchant">Upload Picture</label>
+                                                            <input type='file' id="imgfile" placeholder="Upload Picture"> -->
+
+                                                        <span class="btn btn-primary btn-file">
+                                                            Upload Picture<input type="file" id="imgfile">
+                                                        </span>
+                                                    </div>
+
+                                                    <!-- <div class="form-group">
+                                                            <label for="message2">Message 2</label>
+                                                            <textarea id="message2" class="form-control" rows="3" name="message2" value="" v-model="message2"></textarea>
+                                                        </div>
+                                                        
+                                                        <div class="form-group">
+                                                            <label for="message">Your Name</label>
+                                                            <textarea id="message" class="form-control" rows="3" name="message" value="" v-model="message"></textarea>
+                                                        </div>
+                                                        
+                                                        <div class="form-group">
+                                                            <input type='file' id="imgfile">
+                                                        </div> -->
+
+
+
+                                                    <!-- <div class="form-group">
+                                                            <label for="logo">Select Logo 1</label>
+                                                            
+                                                            <div class="row">
+                                                                                                                            <div class="column">
+                                                                    <img src="" alt="Logo" onclick="logo1(this);" style="width: 100px; height: auto;">
+                                                                </div>
+                                                                                                                        </div>
+                                                            
+                                                        </div>
+                                                        
+                                                        <div class="form-group">
+                                                                
+                                                            <label for="message">Select Logo 2</label>
+                                                            
+                                                            <div class="row">
+                                                                                                                                <div class="column">
+                                                                    <img src="" alt="Logo" onclick="logo2(this);"  style="width: 100px; height: auto">
+                                                                </div>
+                                                                                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="form-group">
+                                                                
+                                                            <label for="message">Select Logo 3</label>
+                                                            
+                                                            <div class="row">
+                                                                                                                                <div class="column">
+                                                                    <img src="" alt="Logo" onclick="logo3(this);"  style="width: 100px; height: auto">
+                                                                </div>
+                                                                                                                            </div>
+                                                        </div> -->
+
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="c-card-content-builder__text-style-container">
+                                                        <div class="row">
+                                                            <div class="col-xs-6">
+                                                                <div class="form-group">
+                                                                    <label for="font_id">Text style</label>
+                                                                    <select name="font_id" id="fontFamily"
+                                                                        class="selectpicker form-control c-card-content-builder__text-style-container__dropdown"
+                                                                        v-model="fontId">
+
+                                                                        <option>Please select a font</option>
+                                                                        <!-- <option class="font_arial" value="2" selected="selected"  data-fontfamily="Arial">Arial</option>
+                                                                    
+                                                                            <option class="font_bad-script" value="15"  data-fontfamily="Bad Script">Bad Script</option>
+                                                                
+                                                                            <option class="font_barrio" value="23"  data-fontfamily="Barrio">Barrio</option>
+
+                                                                            <option class="font_berkshire-swash" value="17"  data-fontfamily="Berkshire Swash">Berkshire Swash</option>
+
+                                                                            <option class="font_comic-sans-ms" value="5"  data-fontfamily="Comic Sans MS">Comic Sans</option>
+
+                                                                            <option class="font_courgette" value="19"  data-fontfamily="Courgette">Courgette</option>
+
+                                                                            <option class="font_euphoria-script" value="11" data-fontfamily="Euphoria Script">Handwritten</option>
+
+                                                                            <option class="font_frijole" value="9"  data-fontfamily="Frijole">Funky</option>
+
+                                                                            <option class="font_georgia" value="3"  data-fontfamily="Georgia">Georgia</option>
+
+                                                                            <option class="font_gloria-hallelujah" value="8"  data-fontfamily="Gloria Hallelujah">Gloria Hallelujah</option>
+
+                                                                            <option class="font_great-vibes" value="13"  data-fontfamily="Great Vibes">Great Vibes</option>
+
+                                                                            <option class="font_lato" value="6"  data-fontfamily="Lato">Lato</option>
+
+                                                                            <option class="font_lobster" value="18"  data-fontfamily="Lobster">Lobster Script</option>
+
+                                                                            <option class="font_montez" value="14"  data-fontfamily="Montez">Montez</option>
+
+                                                                            <option class="font_mountains-of-christmas" value="21"  data-fontfamily="Mountains Of Christmas">Mountains Of Christmas</option>
+
+                                                                            <option class="font_open-sans" value="1"  data-fontfamily="Open Sans">Open Sans</option>
+
+                                                                            <option class="font_pacifico" value="24"  data-fontfamily="Pacifico">Pacifico</option>
+
+                                                                            <option class="font_permanent-marker" value="10"  data-fontfamily="Permanent Marker">Permanent Marker</option>
+
+                                                                            <option class="font_playfair-display" value="22"  data-fontfamily="Playfair Display">Playfair Display</option>
+
+                                                                            <option class="font_rancho" value="16"  data-fontfamily="Rancho">Rancho</option>
+
+                                                                            <option class="font_shadows-into-light" value="7"  data-fontfamily="Shadows Into Light">Shadows Into Light</option> -->
+
+                                                                        <option class="" value="24" selected="selected"
+                                                                            data-fontfamily="Futura Md BT">Futura Md BT
+                                                                        </option>
+
+                                                                        <!-- <option class="font_times-new-roman" value="4"  data-fontfamily="Times New Roman">Time New Roman</option> -->
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label for="font_size">Text size</label>
+                                                                    <select name="font_size" id="fontSize"
+                                                                        class="selectpicker form-control c-card-content-builder__text-style-container__dropdown"
+                                                                        v-model="fontSize">
+                                                                        <option>Please select</option>
+                                                                        <!--    <option value="8" >8</option>
+                                                                            <option value="9" >9</option>
+                                                                            <option value="10" >10</option>
+                                                                            <option value="11" >11</option>
+                                                                            <option value="12" >12</option>
+                                                                            <option value="13" >13</option>
+                                                                            <option value="14" >14</option> -->
+                                                                        <option value="15">15</option>
+                                                                        <!-- <option value="16" >16</option>
+                                                                            <option value="17" >17</option>
+                                                                            <option value="18" >18</option>
+                                                                            <option value="19" >19</option> -->
+                                                                        <option value="20">20</option>
+                                                                        <!-- <option value="21" >21</option>
+                                                                            <option value="22" >22</option>
+                                                                            <option value="23" >23</option>
+                                                                            <option value="24" >24</option> -->
+                                                                        <option value="22" selected=selected>22</option>
+                                                                        <!-- <option value="26" >26</option>
+                                                                            <option value="27" >27</option>
+                                                                            <option value="28" >28</option>
+                                                                            <option value="29" >29</option> -->
+                                                                        <option value="30">30</option>
+                                                                        <!-- <option value="31" >31</option>
+                                                                            <option value="32" >32</option>
+                                                                            <option value="33" >33</option>
+                                                                            <option value="34" >34</option>
+                                                                            <option value="35" >35</option>
+                                                                            <option value="36" >36</option>
+                                                                            <option value="37" >37</option>
+                                                                            <option value="38" >38</option>
+                                                                            <option value="39" >39</option> -->
+                                                                        <option value="40">40</option>
+                                                                        <!-- <option value="41" >41</option>
+                                                                            <option value="42" >42</option>
+                                                                            <option value="43" >43</option>
+                                                                            <option value="44" >44</option> -->
+                                                                        <option value="45">45</option>
+                                                                        <!-- <option value="46" >46</option>
+                                                                            <option value="47" >47</option>
+                                                                            <option value="48" >48</option>
+                                                                            <option value="49" >49</option> -->
+                                                                        <option value="50">50</option>
+                                                                        <!-- <option value="51" >51</option>
+                                                                            <option value="52" >52</option>
+                                                                            <option value="53" >53</option>
+                                                                            <option value="54" >54</option> -->
+                                                                        <option value="55">55</option>
+                                                                        <!-- <option value="56" >56</option>
+                                                                            <option value="57" >57</option>
+                                                                            <option value="58" >58</option>
+                                                                            <option value="59" >59</option> 
+                                                                            <option value="60" >60</option> 
+                                                                            <option value="65" >65</option> -->
+                                                                        <!-- <option value="61" >61</option>
+                                                                            <option value="62" >62</option>
+                                                                            <option value="63" >63</option>
+                                                                            <option value="64" >64</option>
+                                                                            <option value="65" >65</option>
+                                                                            <option value="66" >66</option>
+                                                                            <option value="67" >67</option>
+                                                                            <option value="68" >68</option>
+                                                                            <option value="69" >69</option>
+                                                                            <option value="70" >70</option>
+                                                                            <option value="71" >71</option>
+                                                                            <option value="72" >72</option>
+                                                                            <option value="73" >73</option>
+                                                                            <option value="74" >74</option>
+                                                                            <option value="75" >75</option>
+                                                                            <option value="76" >76</option>
+                                                                            <option value="77" >77</option>
+                                                                            <option value="78" >78</option>
+                                                                            <option value="79" >79</option> 
+                                                                            <option value="80" >80</option> -->
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- <div class="col-xs-3">
+                                                                    <div class="form-group">
+                                                                        <label for="font_colour">Colour</label>
+                                                                            <div class="input-group">
+                                                                                <input name="font_colour" class="selectpicker" type="text" value="#000000" v-model.lazy="fontColor" class="form-control" />
+                                                                            </div>
+                                                                    </div>       
+                                                                </div> -->
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-xs-6">
+                                                                <label>Text alignment</label>
+                                                                <div class="btn-group c-card-content-builder__alignment-container"
+                                                                    data-toggle="buttons">
+                                                                    <label
+                                                                        class="btn c-card-content-builder__alignment-button "
+                                                                        for="alignment-left" data-alignment="left"
+                                                                        v-on:click="textAlignmentSelection">
+                                                                        <input class="sr-only" type="radio"
+                                                                            name="alignment" id="alignment-left"
+                                                                            value="0" data-alignment="left"
+                                                                            autocomplete="off" />
+                                                                        <span class="glyphicon glyphicon-align-left"
+                                                                            aria-hidden="true"
+                                                                            data-alignment="left"></span>
+                                                                    </label>
+                                                                    <label
+                                                                        class="btn c-card-content-builder__alignment-button "
+                                                                        for="alignment-right" data-alignment="right"
+                                                                        v-on:click="textAlignmentSelection">
+                                                                        <input class="sr-only" type="radio"
+                                                                            name="alignment" id="alignment-right"
+                                                                            value="1" data-alignment="right"
+                                                                            autocomplete="off" />
+                                                                        <span class="glyphicon glyphicon-align-right"
+                                                                            aria-hidden="true"
+                                                                            data-alignment="right"></span>
+                                                                    </label>
+                                                                    <label
+                                                                        class="btn c-card-content-builder__alignment-button active"
+                                                                        for="alignment-center" data-alignment="center"
+                                                                        v-on:click="textAlignmentSelection">
+                                                                        <input class="sr-only" type="radio"
+                                                                            name="alignment" id="alignment-center"
+                                                                            value="2" checked=checked
+                                                                            data-alignment="center"
+                                                                            autocomplete="off" />
+                                                                        <span class="glyphicon glyphicon-align-center"
+                                                                            aria-hidden="true"
+                                                                            data-alignment="center"></span>
+                                                                    </label>
+                                                                    <label
+                                                                        class="btn c-card-content-builder__alignment-button "
+                                                                        for="alignment-justify" data-alignment="justify"
+                                                                        v-on:click="textAlignmentSelection">
+                                                                        <input class="sr-only" type="radio"
+                                                                            name="alignment" id="alignment-justify"
+                                                                            value="3" data-alignment="justify"
+                                                                            autocomplete="off" />
+                                                                        <span class="glyphicon glyphicon-align-justify"
+                                                                            aria-hidden="true"
+                                                                            data-alignment="justify"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- <button onclick="takeScreenShot()">to image</button> -->
+
+                                    <div class="c-card-content-builder__action-button__container">
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <button type="button" id="save" class="btn btn-primary"
+                                                    style="margin-right:60px;">
+                                                    <strong>Save</strong>
+                                                </button>
+                                            </div>
+
+                                            <!-- <div class="col-xs-">
+                                            <button type="button" name="imgpdf" id="btn-Convert-Html2Pdf" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary" style="margin :0px;">Preview eCard</button>
+                                        </div> -->
+
+                                            <!--<div class="col-xs-4">
+                                            <--<input id="btn-Preview-Image" type="button" value="Preview" class="btn btn-primary" /> --
+                                            <button type="button" id="btn-Preview-Image" class="btn btn-primary" style="margin-right:60px;">
+                                              <strong>Preview</strong>
+                                            </button>
+                                        </div> -->
+                                            <div class="col-xs-4">
+                                                <!-- <p style="margin-right:80px;">
+                                                <a id="btn-Convert-Html2Image" class="btn btn-primary" href="">Download</a>
+                                            </p> -->
+                                                <!-- <button type="submit" id="btn-Convert-Html2Image" class="btn btn-primary" style="margin-right:60px;">
+                                                <strong>Download</strong> 
+                                            </button> -->
+                                                <input type="submit" name="Download" id="btn-Convert-Html2Image"
+                                                    class="btn btn-primary" value="Download" style="margin-right:60px;">
+
+                                                <!-- <input type="submit" name="Download" id="btn-Convert-Html2IOS" class="btn btn-primary" value="Download In IOS" style="margin-right:60px;"> -->
+
+                                                <input type="hidden" name="imageid" value="3">
+
+                                                <!-- <input type="hidden" name="ipwlid" value="">
+                                            
+                                            <input type="hidden" name="silverex_id" value="">
+                                            <input type="hidden" name="spori_id" value="">
+                                            
+                                            <input type="hidden" name="spcv_id" value=""> -->
+
+                                                <!-- <input type="hidden" name="sessionid" value=""> -->
+                                                <!-- <a id="btn-Convert-Html2Image" class="btn btn-primary" style="margin-right:60px;">Download</a> -->
+                                            </div>
+
+                                            <div class="share-container">
+                                                <!-- <button id="btn-share">Share</button> -->
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-xs-12" id="previewImage"
+                                            style="text-align: center; width: 100%;">
+                                            <!-- <canvas id="canvas" height="352" width="521"></canvas> -->
+
+                                            <!-- <canvas id="canvas" width="1750" height="2482"></canvas> -->
+                                        </div>
+
+
+                                        <!-- Modal start here-->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Preview eCard
+                                                        </h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body prevcard" id="previmg" style="width: 100%;">
+
+                                                    </div>
+                                                    <!-- <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                  </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Modal end here-->
+
+
+                                    </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div><br>
+
+        <!--<div class="col-xs-12" id="previewImage" style="text-align: center; width: 100%;"> -->
+        <!-- <canvas id="canvas" height="352" width="521"></canvas> -->
+
+        <!-- <canvas id="canvas" width="1750" height="2482"></canvas> -->
+        <!--</div> -->
+
+        <!-- Scripts -->
+
+        <!-- DEMO CARDS ------------------->
+        <script type="text/javascript">
+            document.getElementById("content-2").innerHTML = '<div v-if="logo.image" v-bind:style="stylesLogo" style="background-position: center; background-repeat: no-repeat; position: absolute;"></div>' + '<div v-bind:style="stylesFontSize" class="name"><p v-bind:style="stylesMessage" class="c-ecard__message name" style="overflow: visible; position: absolute; width: 76.7%; max-width: 77.7%; height: 4.8%; left: 12%; top: 25.9%; color: #000000;font-weight: bold; margin-bottom: 0px;" v-html="(company)"></p></div>' + '<div v-bind:style="stylesFontSize" name="image"><p style="overflow: hidden; position: absolute; width: 30.55%;max-width: 33.5%;height: 17.2%;left: 35.1%;top: 30.65%; border-radius: 5px;"><img id="myImg" src=""style="width: 100%;height:100%;border:none; border-radius: 50%;"></p></div>' + '<div v-bind:style="stylesFontSize" class="clinic"><p v-bind:style="stylesMessage" class="c-ecard__message clinic" style="overflow: visible; position: absolute; width: 76.7%; max-width: 77.7%; height: 4.8%; left: 12.0%; color: #000000; font-weight: bold; bottom: 45.1%; margin-bottom: 0px;" v-html="(clinic)"></p></div>' + '<div v-bind:style="stylesFontSize" class="days"><p v-bind:style="stylesMessage" class="c-ecard__message" style="overflow: visible; position: absolute; width: 65.7%; max-width: 65.7%; height: 4.8%; left: 23.1%; bottom: 38%; font-weight: bold; margin-bottom: 0px;" v-html="(days)"></p></div>' + '<div v-bind:style="stylesFontSize" class="time"><p v-bind:style="stylesMessage" class="c-ecard__message" style="overflow: visible; position: absolute; width: 65.7%; max-width: 65.7%; height: 4.8%; left: 23.1%; bottom: 32.9%; font-weight: bold; margin-bottom: 0px;" v-html="(time)"></p></div>' + '<div v-bind:style="stylesFontSize" class=""><p v-bind:style="" class="c-ecard__message" style="overflow: visible; position: absolute; width: 35.7%; max-width: 35.7%; height: 4.8%; left: 30.1%; color: #0b5191 !important; text-align: center; bottom: 48.7%; font-weight: bold; margin-bottom: 0px;" v-html="(mobile)"></p></div>';
+        </script>
+
+
+        <script type="text/javascript">
+            document.getElementById("content-3").innerHTML = '<div v-if="logo.image" v-bind:style="stylesLogo" style="background-position: center; background-repeat: no-repeat; position: absolute;"></div>' + '<div v-bind:style="stylesFontSize" class="name"><p v-bind:style="stylesMessage" class="c-ecard__message name" style="overflow: visible; position: absolute; width: 76.7%; max-width: 77.7%; height: 4.8%; left: 12%; top: 23.9%; color: #000000;font-weight: bold; text-align: center; font-size: 22px; margin-bottom: 0px;" v-html="(company)"></p></div>' + '<div v-bind:style="stylesFontSize" name="image"><p style="overflow: hidden; position: absolute; width: 36.92%;max-width: 38.5%;height: 20.9%; left: 31.6%; top: 28.3%; border-radius: 0px;"><img id="myImg" src=""style="width: 100%;height:100%;border:none;"></p></div>' + '<div v-bind:style="stylesFontSize" class="clinic"><p v-bind:style="stylesMessage" class="c-ecard__message clinic" style="overflow: visible; position: absolute; width: 76.7%; max-width: 77.7%; height: 4.8%; left: 12.0%; color: #000000; font-weight: bold; text-align: center; font-size: 22px; bottom: 44.1%; margin-bottom: 0px;" v-html="(clinic)"></p></div>' + '<div v-bind:style="stylesFontSize" class="days"><p v-bind:style="stylesMessage" class="c-ecard__message" style="overflow: visible; position: absolute; width: 65.7%; max-width: 65.7%; height: 4.8%; left: 23.1%; bottom: 38%; font-weight: bold; margin-bottom: 0px;" v-html="(days)"></p></div>' + '<div v-bind:style="stylesFontSize" class="time"><p v-bind:style="stylesMessage" class="c-ecard__message" style="overflow: visible; position: absolute; width: 65.7%; max-width: 65.7%; height: 4.8%; left: 23.1%; bottom: 32.9%; font-weight: bold; margin-bottom: 0px;" v-html="(time)"></p></div>' + '<div v-bind:style="stylesFontSize" class=""><p v-bind:style="" class="c-ecard__message" style="overflow: visible; position: absolute; width: 35.7%; max-width: 35.7%; height: 4.8%; left: 30.1%; color: #0b5191 !important; text-align: center; bottom: 48.7%; font-weight: bold; margin-bottom: 0px;" v-html="(mobile)"></p></div>';
+        </script>
+
+
+        <script type="text/javascript">
+            document.getElementById("content-222").innerHTML = '<div v-if="logo.image" v-bind:style="stylesLogo" style="background-position: center; background-repeat: no-repeat; position: absolute;"></div>' + '<div v-bind:style="stylesFontSize" class="name"><p v-bind:style="stylesMessage" class="c-ecard__message" style="overflow: visible; position: absolute; width: 55.7%; max-width: 56.7%; height: 4.8%; left: 32%; top: 27.4%; font-weight: bold; margin-bottom: 0px;" v-html="(company)"></p></div>' + '<div v-bind:style="stylesFontSize" name="image"><p style="overflow: hidden; position: absolute; width: 30.55%;max-width: 33.5%;height: 17.2%;left: 35.1%;top: 30.65%; border-radius: 5px;"><img id="myImg" src=""style="width: 100%;height:100%;border:none; border-radius: 50%;"></p></div>' + '<div v-bind:style="stylesFontSize" class="clinic"><p v-bind:style="stylesMessage" class="c-ecard__message" style="overflow: visible; position: absolute; width: 76.7%; max-width: 77.7%; height: 4.8%; left: 12.0%; bottom: 43.9%; font-weight: bold; margin-bottom: 0px;" v-html="(clinic)"></p></div>' + '<div v-bind:style="stylesFontSize" class="days"><p v-bind:style="stylesMessage" class="c-ecard__message" style="overflow: visible; position: absolute; width: 65.7%; max-width: 65.7%; height: 4.8%; left: 23.1%; bottom: 38%; font-weight: bold; margin-bottom: 0px;" v-html="(days)"></p></div>' + '<div v-bind:style="stylesFontSize" class="time"><p v-bind:style="stylesMessage" class="c-ecard__message" style="overflow: visible; position: absolute; width: 65.7%; max-width: 65.7%; height: 4.8%; left: 23.1%; bottom: 32.9%; font-weight: bold; margin-bottom: 0px;" v-html="(time)"></p></div>' + '<div v-bind:style="stylesFontSize" class=""><p v-bind:style="" class="c-ecard__message" style="overflow: visible; position: absolute; width: 35.7%; max-width: 35.7%; height: 4.8%; left: 30.1%; color: #0b5191 !important; text-align: center; bottom: 48.7%; font-weight: bold; margin-bottom: 0px;" v-html="(mobile)"></p></div>';
+        </script>
+
+
+        <!--       Tamil New yr end here -------->
+
+
+        <script src="https://www.myecard.in/netmeds/js/manifest.d41d8cd98f00b204e980.js"></script>
+        <script src="https://www.myecard.in/netmeds/js/vendor.d20e2fda3ea4fa7ac206.js"></script>
+        <script src="https://www.myecard.in/netmeds/js/app.2819979b093370c20e10.js"></script>
+        <script src="https://www.myecard.in/netmeds/js/bat.js"></script>
+    </body>
+
+
+    <script type="text/javascript">
+        $('form').submit(function (e) {
+            e.preventDefault();
+
+            var imageid = $("input[name='imageid']").val();
+            //var proh = $("input[name='proh']").val();
+
+            //var silverex_id = $("input[name='silverex_id']").val();
+            //var spori_id = $("input[name='spori_id']").val();
+
+            var mobile = $("input[name='mobile']").val();
+
+            var company = $("input[name='company']").val();
+            var clinic = $("input[name='clinic']").val();
+            //var days = $("input[name='days']").val();
+            //var time = $("input[name='time']").val();
+
+            //var merchant = $("input[name='merchant']").val();
+
+            //var description = $("textarea[name='description']").val();
+
+            $.ajax({
+                url: 'https://www.myecard.in/netmeds/Card/opd_downl',
+                type: 'POST',
+                //data: {imageid: imageid},
+
+                data: { imageid: imageid, clinic: clinic, company: company },
+
+                beforeSend: function () {
+                    $('#btn-Convert-Html2Image').html('Downloading...');
+                    $('#btn-Convert-Html2Image').attr('disabled', true);
+                },
+
+                error: function () {
+                    alert('Something is wrong');
+                },
+                success: function (data) {
+                    //alert($data);
+                    //$("tbody").append("<tr><td>"+title+"</td><td>"+description+"</td></tr>");
+                    $('#btn-Convert-Html2Image').attr('disabled', true);
+                    alert("Your eCard is downloading please wait...");
+                }
+            });
+        });
+    </script>
+
+
+    <script>
+        function myFunction3(imgs) {
+            // Get the expanded image
+            var expandImg = document.getElementById("expandedImg");
+            // Get the image text
+            //var imgText = document.getElementById("imgtext");
+            // Use the same src in the expanded image as the image being clicked on from the grid
+            expandImg.src = imgs.src;
+            // Use the value of the alt attribute of the clickable image as text inside the expanded image
+            //imgText.innerHTML = imgs.alt;
+            // Show the container element (hidden with CSS)
+            expandImg.parentElement.style.display = "block";
+        }
+
+        function logo1(imgs) {
+            // Get the expanded image
+            //var expandImg = document.getElementById("expandImg");
+            var logo1 = document.getElementById("logo1");
+            // Get the image text
+            //var imgText = document.getElementById("imgtext");
+            // Use the same src in the expanded image as the image being clicked on from the grid
+            //expandImg.src = imgs.src;
+            logo1.src = imgs.src;
+            // Use the value of the alt attribute of the clickable image as text inside the expanded image
+            //imgText.innerHTML = imgs.alt;
+            // Show the container element (hidden with CSS)
+            //expandImg.parentElement.style.display = "block";
+            logo1.parentElement.style.display = "block";
+        }
+
+        function logo2(imgs) {
+            // Get the expanded image
+            //var expandImg = document.getElementById("expandImg");
+            var logo2 = document.getElementById("logo2");
+            // Get the image text
+            //var imgText = document.getElementById("imgtext");
+            // Use the same src in the expanded image as the image being clicked on from the grid
+            //expandImg.src = imgs.src;
+            logo2.src = imgs.src;
+            // Use the value of the alt attribute of the clickable image as text inside the expanded image
+            //imgText.innerHTML = imgs.alt;
+            // Show the container element (hidden with CSS)
+            //expandImg.parentElement.style.display = "block";
+            logo2.parentElement.style.display = "block";
+        }
+
+        function logo3(imgs) {
+            // Get the expanded image
+            //var expandImg = document.getElementById("expandImg");
+            var logo3 = document.getElementById("logo3");
+            // Get the image text
+            //var imgText = document.getElementById("imgtext");
+            // Use the same src in the expanded image as the image being clicked on from the grid
+            //expandImg.src = imgs.src;
+            logo3.src = imgs.src;
+            // Use the value of the alt attribute of the clickable image as text inside the expanded image
+            //imgText.innerHTML = imgs.alt;
+            // Show the container element (hidden with CSS)
+            //expandImg.parentElement.style.display = "block";
+            logo3.parentElement.style.display = "block";
+        }
+
+        $('#save').click(function (e) {
+
+            e.preventDefault();
+            var company = document.getElementById("company");
+            var clinic = document.getElementById("clinic");
+            //var days = document.getElementById("days");
+            //var time = document.getElementById("time");
+            var imgfile = document.getElementById("imgfile");
+
+            //--- var expandImg = document.getElementById("expandedImg");
+
+            localStorage.setItem("company", company.value);
+            localStorage.setItem("clinic", clinic.value);
+            //localStorage.setItem("days", days.value);
+            //localStorage.setItem("time", time.value);
+            localStorage.setItem("imgfile", imgfile.value);
+
+            //--- localStorage.setItem("expandImg", expandImg.value);
+            //});
+
+
+            var node = document.getElementById('html-content-holder');
+            //alert(node);
+            //node.setAttribute("style", "width: 1750px; height: 2482px;");
+
+            var style = {
+                // transform: 'scale(.5)', 
+                top: 0,
+                left: 0,
+                margin: 0,
+                width: '700px',
+                height: '990px',
+
+            };
+
+
+
+            var btn = document.getElementById('btn-Convert-Html2Image');
+
+
+            btn.onclick = function () {
+
+                setTimeout(function () {
+
+                    //node.style.width = '875px';
+                    //node.style.height = '1241px';
+
+                    // ---- 100% 
+                    //-- node.style.width = '1242px';
+                    //-- node.style.height = '2208px';
+
+                    // ---- 35%
+                    node.style.width = '434.7px';
+                    node.style.height = '772.8px';
+
+                    //node.style.width = '612.5px';
+                    //node.style.height = '868.7px';
+
+                    //node.innerHTML = "I'm an image now."
+                    domtoimage.toBlob(document.getElementById('html-content-holder'))
+                        //domtoimage.toBlob(node, {style: style, width: 1750, height: 2482})
+                        .then(function (blob) {
+
+                            //window.saveAs(blob, 'ecard.jpg');
+                            window.open(URL.createObjectURL(blob, 'netmeds.jpg'));
+
+                            //--var card = window.saveAs(blob, 'ecard.jpg');
+                            //window.open(blob, 'ecard.png');
+                            //navigator.share(blob, 'ecard.png');
+                        });
+
+                    /* domtoimage.toPng(document.getElementById('html-content-holder'))
+                    .then(dataURL => {
+                        var image = new Image();
+                        image.src = dataURL;
+                        //window.open(URL.createObjectURL(dataURL,'ipwl.png'));
+                        window.saveAs(dataURL, 'ipwl.png');
+                        //document.body.appendChild(image);
+                    })
+                    .catch(error => console.error('Something went wrong!', error)); */
+
+                    /* domtoimage.toPng(node).then(function (dataUrl) {
+                        var img = new Image();
+                        img.src = dataUrl;
+                        //----window.saveAs(dataUrl, 'eCard.png');
+                        //window.open(URL.createObjectURL(dataUrl,'ipwl.png'));
+                        var binaryData = [];
+                        binaryData.push(img);
+                        //window.open(URL.createObjectURL(new Blob(binaryData, dataUrl, { type: 'image/ipwl.png' } )));
+                        window.open(URL.createObjectURL(new Blob(binaryData, { type: "image/png"}))) 
+                        
+                    }).catch(function (error) {
+                        console.error('oops, something went wrong!', error);
+                    }); */
+
+
+                    // ===== }); //
+
+                }, 500);
+
+            }
+
+
+
+
+
+
+
+            var btn = document.getElementById('btn-Convert-Html2Pdf');
+
+            btn.onclick = function () {
+                setTimeout(function () {
+
+                    //node.style.width = '875px';
+                    //node.style.height = '1241px';
+
+                    // -- node.style.width = '1242px';
+                    // -- node.style.height = '2208px';
+
+                    // ---- 35%
+                    node.style.width = '434.7px';
+                    node.style.height = '772.8px';
+
+                    //-- node.style.width = '875px';
+                    //-- node.style.height = '1241px';
+
+                    //node.style.width = '612.5px';
+                    //node.style.height = '868.7px';
+
+                    //node.innerHTML = "I'm an image now."
+
+
+
+                    domtoimage.toPng(document.getElementById('html-content-holder'))
+                        .then(dataURL => {
+                            var image = new Image();
+                            image.src = dataURL;
+                            //--window.open(URL.createObjectURL(dataURL,'ipwl.png'));
+                            //============= window.saveAs(dataURL, 'ecard.png');
+                            // --- window.open(URL.createObjectURL(dataURL,'ipwl.png')); 
+                            //---------- document.body.appendChild(image);
+
+                            //var w = window.open(URL.createObjectURL(dataURL,'ecard.png'));
+
+                            document.getElementById("previmg").appendChild(image);
+
+                            const list = document.getElementById("previmg");
+
+                            //list.removeChild(list.firstElementChild);
+                            document.getElementById("previmg").lastChild.innerHTML;
+
+                            while (list.childNodes.length > 1) {
+                                list.removeChild(list.firstChild);
+                            }
+
+                        })
+                        .catch(error => console.error('Something went wrong!', error));
+
+                    // ===== }); //
+
+                }, 500);
+
+            }
+
+
+
+
+            var btn = document.getElementById('btn-Convert-Html2IOS');
+
+
+            btn.onclick = function () {
+
+                setTimeout(function () {
+
+                    //node.style.width = '875px';
+                    //node.style.height = '1241px';
+
+                    node.style.width = '372.6px';
+                    node.style.height = '662.4px';
+
+                    //node.style.width = '612.5px';
+                    //node.style.height = '868.7px';
+
+                    //node.innerHTML = "I'm an image now."
+                    domtoimage.toBlob(document.getElementById('html-content-holder'))
+                        //domtoimage.toBlob(node, {style: style, width: 1750, height: 2482})
+                        .then(function (blob) {
+
+                            //window.saveAs(blob, 'ecard.jpg');
+                            window.open(URL.createObjectURL(blob, 'netmeds.jpg'));
+
+                            //--var card = window.saveAs(blob, 'ecard.jpg');
+                            //window.open(blob, 'ecard.png');
+                            //navigator.share(blob, 'ecard.png');
+                        });
+
+                    // ===== }); //
+
+                }, 500);
+
+            }
+
+
+            //---}
+
+
+        });
+    </script>
+
+    <script>
+        /* window.addEventListener('load', function() {
+        if(!navigator.share) {
+            document.querySelector('.share-container').innerHTML = 'Web Share API not supported in this browser';
+            return;
+        }
+        
+        document.getElementById('btn-share').addEventListener('click', function() {
+            navigator.share({
+                //files: 'uploads/images/ipl.jpg',
+                //files: 'ecard',
+                title: 'Check out this web share API demo',
+                text: 'Its really cool',
+                url: 'https://mobiforge.github.io/web-share-api.html',
+            });
+        });
+        }); */
+
+        document.getElementById('btn-share').addEventListener('click', function () {
+            if (navigator.canShare && navigator.canShare({ files: 'https://www.myecard.in/netmeds/uploads/images/ipl.jpg' })) {
+                navigator.share({
+                    files: 'https://www.myecard.in/netmeds/uploads/images/ipl.jpg',
+                    //title: 'Vacation Pictures',
+                    //text: 'Barb\nHere are the pictures from our vacation.\n\nJoe',
+                })
+                    .then(() => console.log('Share was successful.'))
+                    .catch((error) => console.log('Sharing failed', error));
+            } else {
+                console.log('Your system doesn\'t support sharing files.');
+            }
+        });
+    </script>
+
+
+
+    <script type="text/javascript">
+
+    </script>
+
+
+    </html>

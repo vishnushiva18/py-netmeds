@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netmeds - Wecare</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+        }
+
+        .container img {
+            width: 375px;
+            height: auto;
+        }
+
+        .container .btndiv {
+            position: absolute;
+            /* top: 50%; */
+            top: 520px;
+            left: 80px;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            /* background-color: #555; */
+            color: white;
+            font-size: 16px;
+            /* padding: 12px 24px; */
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .container .btndiv1 {
+            position: absolute;
+            /* top: 50%; */
+            top: 523px;
+            left: 81px;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            /* background-color: #555; */
+            color: white;
+            font-size: 16px;
+            /* padding: 12px 24px; */
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .container .btn {
+            /* background-color: #ffffff; */
+            /* color: white; */
+            font-size: 16px;
+            /* border: none; */
+            cursor: pointer;
+            /* border-radius: 5px; */
+            text-align: center;
+            margin-top: 5px;
+            /* width: 100%; */
+            font-weight: 700;
+        }
+
+        .container .btn:hover {
+            background-color: #d8cdcd;
+        }
+
+        .div-a-list {
+            width: 100%;
+            border-bottom: inset;
+            height: 23px;
+            background-color: #ffffff;
+        }
+
+        .div-a-list:hover {
+            background-color: #f3eded;
+        }
+
+        .div-a {
+            text-decoration: none;
+            color: #ffffff;
+            padding: 5px 10px 5px 10px;
+            border: solid;
+        }
+
+        .user-input {
+            width: 142px;
+            height: 14px;
+            background-color: #82008e;
+            color: #ffffff;
+            outline: 0;
+            border-width: 0 0 1px 0;
+            border-color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div style="width: 359px;">
+            <div id="html-content-holder"
+                style="width: 359px; height: 624px; background-image: url({{img}});background-size: cover; background-position: center; background-repeat: no-repeat; object-fit: contain;">
+
+                <div class="btndiv1" id="div-user-img" style="margin-top: 10px;">
+                    <img src="" id="user-img" alt="user-img" style="width: 84px; height: 82px; border-radius: 50%;">
+                </div>
+                <div class="btndiv" style="margin-top: 10px;">
+                    <img src="/assets/images/WeCare_Diwali_img_upload-icon.png" id="upload-img" alt="upload-img"
+                        style="width: 98px;" onclick="imgBrows()">
+                </div>
+                <div class="btndiv" id="div-user-input" style="top: 522px; left: 202px;">
+                    <input type="text" id="input-name" class="user-input" placeholder="Your name"><br>
+                    <input type="text" id="input-shop" class="user-input" placeholder="Shop name"><br>
+                    <input type="text" id="input-phone" class="user-input" placeholder="Phone"><br>
+                    <input type="text" id="input-location" class="user-input" placeholder="Location">
+                </div>
+            </div>
+            <input type=file name=file id="user-img-brows" accept="image/*" onchange="readURL(this);"
+                style="display: none;">
+
+            <button class="btn" type="button" onclick="downloadImage()">Download Image</button>
+        </div>
+
+    </div>
+</body>
+
+<script type="text/javascript" src="https://www.myecard.in/netmeds/asset/js/dom-to-image.js"></script>
+<script>
+    var imgUploaded = false;
+    function imgBrows() {
+        const fileInput = document.getElementById("user-img-brows");
+        fileInput.click();
+    }
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#user-img').attr('src', e.target.result);
+                $('#upload-img').hide();
+                imgUploaded = true;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    var stringToHTML = function (str) {
+        var dom = document.createElement('div');
+        dom.innerHTML = str;
+        return dom;
+    };
+
+
+    function downloadImage(){
+        var d = {
+            campaign: "wecare",
+            name: document.getElementById("input-name").value.trim(),
+            shop: document.getElementById("input-shop").value.trim(),
+            phone: document.getElementById("input-phone").value.trim(),
+            location: document.getElementById("input-location").value.trim()
+        }
+
+        if(!imgUploaded){
+            alert("Please upload your photo");
+            return;
+        }
+        if(d.name == ""){
+            alert("Please enter your name");
+            return;
+        }
+        if(d.shop == ""){
+            alert("Please enter Shop name");
+            return;
+        }
+        if(d.phone == ""){
+            alert("Please enter your phone number");
+            return;
+        }
+        if(d.location == ""){
+            alert("Please enter your Location");
+            return;
+        }
+
+        updateData(d);
+
+        var node = document.getElementById('html-content-holder');
+        var nodeUserImgDiv = document.getElementById('div-user-img');
+        var nodeUserImg = document.getElementById('user-img');
+        var nodeUserInputDiv = document.getElementById('div-user-input');
+        
+        node.style.width = '1125px';
+        node.style.height = '1955px';
+
+        nodeUserImgDiv.style.top = '1656px';
+        nodeUserImgDiv.style.left = '251px';
+
+        nodeUserImg.style.width = '261px';
+        nodeUserImg.style.height = '261px';
+
+        nodeUserInputDiv.style.top = '1648px';
+        nodeUserInputDiv.style.left = '630px';
+        
+        const collection = document.getElementsByClassName("user-input");
+        for (const element of collection) {
+            element.style.width = '452px';
+            element.style.height = '53px';
+            element.style.fontSize = '40px';
+        }
+
+        domtoimage.toJpeg(node, { quality: 1 })
+        .then(function (dataUrl) {
+            var link = document.createElement('a');
+            link.download = 'wecare-netmeds.jpeg';
+            link.href = dataUrl;
+            link.click();
+        }).catch(function (error) {
+            console.error('oops, something went wrong!', error);
+        }).finally(function(){
+            node.style.width = '359px';
+            node.style.height = '624px';
+
+            nodeUserImgDiv.style.top = '523px';
+            nodeUserImgDiv.style.left = '81px';
+
+            nodeUserImg.style.width = '84px';
+            nodeUserImg.style.height = '84px';
+
+            nodeUserInputDiv.style.top = '522px';
+            nodeUserInputDiv.style.left = '202px';
+            
+            const collection = document.getElementsByClassName("user-input");
+            for (const element of collection) {
+                element.style.width = '142px';
+                element.style.height = '14px';
+                element.style.fontSize = '14px';
+            }
+        });
+    }
+
+    function updateData(d){
+        $.ajax({
+            url: '/netmeds/microsite/update',
+            type: 'post',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(d)
+        });
+    }
+
+</script>
+
+</html>

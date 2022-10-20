@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netmeds - Wecare</title>
+
+    <style>
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+        }
+
+        .container img {
+            width: 375px;
+            height: auto;
+        }
+
+        .container .btndiv {
+            position: absolute;
+            /* top: 50%; */
+            top: 538px;
+            left: 180px;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            /* background-color: #555; */
+            color: white;
+            font-size: 16px;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .container .btn {
+            background-color: #ffffff;
+            /* color: white; */
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            /* border-radius: 5px; */
+            text-align: center;
+            margin-top: 5px;
+            width: 100%;
+            font-weight: 700;
+        }
+
+        .container .btn:hover {
+            background-color: #d8cdcd;
+        }
+
+        .div-a-list {
+            width: 100%;
+            border-bottom: inset;
+            height: 23px;
+            background-color: #ffffff;
+        }
+
+        .div-a-list:hover {
+            background-color: #f3eded;
+        }
+
+        .div-a {
+            text-decoration: none;
+            color: #ffffff;
+            padding: 5px 10px 5px 10px;
+            border: solid;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <div style="width: 359px;">
+                <img src="/assets/images/WeCare_Diwali_V003.png" alt="Snow" style="width:100%">
+            </div>
+            <div class="btndiv" style="margin-top: 10px;width: 160px;">
+                <!-- <button class="btn">Create New</button> -->
+                <a href="/netmeds/wecare/{{lang}}/create" class="div-a" >Create New</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

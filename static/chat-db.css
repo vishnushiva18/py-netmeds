@@ -1,0 +1,80 @@
+.stretch-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -webkit-box-pack: stretch;
+  -ms-flex-pack: stretch;
+  justify-content: stretch; }
+  .stretch-card > .card {
+    width: 100%;
+    min-width: 100%; }
+
+    .grid-margin, .purchase-popup {
+      margin-bottom: 2.5rem; }
+    
+    @media (min-width: 576px) {
+      .grid-margin-sm-0 {
+        margin-bottom: 0; } }
+    
+    @media (min-width: 768px) {
+      .grid-margin-md-0 {
+        margin-bottom: 0; } }
+    
+    @media (min-width: 992px) {
+      .grid-margin-lg-0 {
+        margin-bottom: 0; } }
+    
+    @media (min-width: 1200px) {
+      .grid-margin-xl-0 {
+        margin-bottom: 0; } }
+
+        .dash-tiles {
+          cursor: pointer;
+        }
+.card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.3125rem; }
+  .card > hr {
+    margin-right: 0;
+    margin-left: 0; }
+  .card > .list-group {
+    border-top: inherit;
+    border-bottom: inherit; }
+    .card > .list-group:first-child {
+      border-top-width: 0;
+      border-top-left-radius: calc(0.25rem - 1px);
+      border-top-right-radius: calc(0.25rem - 1px); }
+    .card > .list-group:last-child {
+      border-bottom-width: 0;
+      border-bottom-right-radius: calc(0.25rem - 1px);
+      border-bottom-left-radius: calc(0.25rem - 1px); }
+  .card > .card-header + .list-group,
+  .card > .list-group + .card-footer {
+    border-top: 0; }
+
+.bg-gradient-danger {
+  background: -webkit-gradient(linear, left top, right top, from(#ffbf96), to(#fe7096)) !important;
+  background: linear-gradient(to right, #ffbf96, #fe7096) !important; }
+
+  .card.card-img-holder {
+    position: relative; }
+    .card.card-img-holder .card-img-absolute {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%; }

@@ -1,0 +1,17 @@
+Flask
+requests
+mysql_connector_repackaged
+mysql-connector-python==8.0.19
+python-dateutil
+pymongo
+pytz
+pycryptodomex
+pdfminer
+PyPDF2
+pyjwt
+pandas
+pymssql
+flask-cors
+pyOpenSSL
+weasyprint
+pyjwt
