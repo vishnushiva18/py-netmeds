@@ -204,8 +204,13 @@
             element.style.fontSize = '40px';
         }
 
-        domtoimage.toJpeg(node, { quality: 1 })
+        // domtoimage.toJpeg(node, { quality: 1 })
+        domtoimage.toBlob(node)
         .then(function (dataUrl) {
+            // window.open(URL.createObjectURL(dataUrl, 'netmeds.jpg'));
+            window.location = URL.createObjectURL(dataUrl, 'netmeds.jpg');
+            return;
+            
             var link = document.createElement('a');
             link.download = 'diwali-netmeds.jpeg';
             link.href = dataUrl;

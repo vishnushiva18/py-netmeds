@@ -27,5 +27,6 @@ def asset_them_new_f1_f2_f3(f1, f2, f3, f):
     return send_from_directory(f"assets/theme-new/{f1}/{f2}/{f3}", f"{f}")
 
 if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0',port=5000)
+    # app.run(debug=True,host='0.0.0.0',port=8080)
+    app.run(host='0.0.0.0',port=5000)
     
