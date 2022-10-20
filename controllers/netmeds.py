@@ -55,13 +55,11 @@ def netmeds_wecare_lang_create(lang):
     texts = [d['name'], d['shop'], d['phone'], d['location']]
     
     frame = f".{frame}"
-    print(frame)
-    with open(frame, 'rb') as f:
+    with app.open_resource(frame, 'rb') as f:
         frame = f.read()
 
     fontFile = "./assets/fonts/OpenSans-BoldItalic.ttf"
-    print(fontFile)
-    with open(fontFile, 'rb') as f:
+    with app.open_resource(fontFile, 'rb') as f:
         fontFile = f.read()
 
     font = ImageFont.truetype(io.BytesIO(fontFile), size=34)
