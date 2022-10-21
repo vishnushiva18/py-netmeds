@@ -13,6 +13,9 @@ def asset_share(p1, f1):
     print(p1, f1)
     return send_from_directory(f"assets/{p1}", f"{f1}")
 
+@app.route('/output/<f1>', methods=['GET'])
+def output_share(f1):
+    return send_from_directory(f"output/", f"{f1}")
 
 @app.route('/assets/theme-new/<f1>/<f>')
 def asset_them_new_f1(f1, f):
