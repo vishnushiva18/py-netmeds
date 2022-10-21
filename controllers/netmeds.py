@@ -154,8 +154,8 @@ def netmeds_diwali_create(empid):
     finalImg = Image.new('RGB', frame.size, color = 'white')
     canvas = ImageDraw.Draw(finalImg)
     
-    user = user.resize((620, 310))
-    finalImg.paste(user, (250, 1030))
+    user = user.resize((310, 310))
+    finalImg.paste(user, (410, 1040))
     finalImg.paste(frame, (0, 0), frame)
 
     tmpY = 1520
