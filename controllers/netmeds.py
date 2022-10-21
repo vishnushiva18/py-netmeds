@@ -95,7 +95,7 @@ def netmeds_wecare_lang_create(lang):
     fileId = str(uuid.uuid4())
     filePath = f"/output/{fileId}.jpg"
     try:
-        finalImg.save(f".{filePath}", format="JPEG")
+        finalImg.save(f"/var/www/html/python/py-netmeds{filePath}", format="JPEG")
     except Exception as e:
         print(e)
         bufferedFinal = io.BytesIO()
@@ -167,7 +167,7 @@ def netmeds_diwali_create(empid):
     fileId = str(uuid.uuid4())
     filePath = f"/output/{fileId}.jpg"
     try:
-        finalImg.save(f".{filePath}", format="JPEG")
+        finalImg.save(f"/var/www/html/python/py-netmeds{filePath}", format="JPEG")
     except Exception as e:
         print(e)
         # return {'s': False}
