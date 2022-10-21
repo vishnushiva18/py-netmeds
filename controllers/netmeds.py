@@ -2,7 +2,7 @@ from flask import (render_template, request,
                    url_for, redirect)
 from pkg_imp import app, requests, MONGO_CSQUARE
 from PIL import Image, ImageDraw, ImageFont, ExifTags
-import base64, io
+import base64, io, uuid
 
 @app.route('/netmeds/wecare', methods=['GET'])
 def netmeds_wecare():
@@ -156,6 +156,13 @@ def netmeds_diwali_create(empid):
         canvas.text((380, tmpY), t, font=font, fill='#ffffff')
         tmpY += 55
 
+
+    fileId = str(uuid.uuid4())
+    try:
+        finalImg.save(f"./output/{fileId}.jpg", format="JPEG")
+    except Exception as e:
+        print(e)
+        pass
 
     bufferedFinal = io.BytesIO()
     finalImg.save(bufferedFinal, format="JPEG")
