@@ -100,13 +100,13 @@ def netmeds_wecare_lang_create(lang):
         print(e)
         return {'s': False}
 
-    # bufferedFinal = io.BytesIO()
-    # finalImg.save(bufferedFinal, format="JPEG")
-    # final_str = bytes("data:image/jpeg;base64,", encoding='utf-8') + base64.b64encode(bufferedFinal.getvalue())
+    bufferedFinal = io.BytesIO()
+    finalImg.save(bufferedFinal, format="JPEG")
+    final_str = bytes("data:image/jpeg;base64,", encoding='utf-8') + base64.b64encode(bufferedFinal.getvalue())
 
     d['user_img'] = None
     MONGO_CSQUARE.DB["netmeds_microsite_log"].insert_one(d)
-    return {'s': True, 'img': filePath}
+    return {'s': True, 'img': final_str.decode("utf-8")}
 
 @app.route('/netmeds/diwali', methods=['GET', 'POST'])
 def netmeds_diwali():
@@ -173,13 +173,13 @@ def netmeds_diwali_create(empid):
         print(e)
         return {'s': False}
 
-    # bufferedFinal = io.BytesIO()
-    # finalImg.save(bufferedFinal, format="JPEG")
-    # final_str = bytes("data:image/jpeg;base64,", encoding='utf-8') + base64.b64encode(bufferedFinal.getvalue())
+    bufferedFinal = io.BytesIO()
+    finalImg.save(bufferedFinal, format="JPEG")
+    final_str = bytes("data:image/jpeg;base64,", encoding='utf-8') + base64.b64encode(bufferedFinal.getvalue())
 
     d['user_img'] = None
     MONGO_CSQUARE.DB["netmeds_microsite_log"].insert_one(d)
-    return {'s': True, 'img': filePath}
+    return {'s': True, 'img': final_str.decode("utf-8")}
 
 
 @app.route('/netmeds/microsite/update', methods=['POST'])
