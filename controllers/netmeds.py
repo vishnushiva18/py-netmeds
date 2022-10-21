@@ -2,7 +2,7 @@ from flask import (render_template, request,
                    url_for, redirect)
 from pkg_imp import app, requests, MONGO_CSQUARE
 from PIL import Image, ImageDraw, ImageFont, ExifTags
-import base64, io, uuid
+import base64, io, uuid, datetime
 
 @app.route('/netmeds/wecare', methods=['GET'])
 def netmeds_wecare():
@@ -104,6 +104,7 @@ def netmeds_wecare_lang_create(lang):
         return {'s': True, 'img': final_str.decode("utf-8")}
 
     d['user_img'] = None
+    d['time'] = datetime.datetime.utcnow()
     MONGO_CSQUARE.DB["netmeds_microsite_log"].insert_one(d)
     return {'s': True, 'img': filePath}
 
@@ -177,6 +178,7 @@ def netmeds_diwali_create(empid):
         return {'s': True, 'img': final_str.decode("utf-8")}
 
     d['user_img'] = None
+    d['time'] = datetime.datetime.utcnow()
     MONGO_CSQUARE.DB["netmeds_microsite_log"].insert_one(d)
     return {'s': True, 'img': filePath}
 
