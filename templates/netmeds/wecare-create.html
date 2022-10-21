@@ -205,6 +205,11 @@
             contentType: 'application/json',
             data: JSON.stringify(d),
             success: function (resp) {
+                if(!resp.s){
+                    alert("please try again");
+                    return;
+                }
+                
                 var link = document.createElement('a');
                 link.download = 'wecare-netmeds.jpeg';
                 link.href = resp.img;
