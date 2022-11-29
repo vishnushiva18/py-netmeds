@@ -227,6 +227,7 @@ def netmeds_wintercare():
 
 @app.route('/wintercare/<lang>', methods=['GET'])
 def netmeds_wintercare_lang(lang):
-    return render_template('netmeds/wintercare-pdf-view.html', lang=f"https://csquare.in/downloads/netmeds/Winter_Care_{lang}.pdf")
+    return render_template('netmeds/wintercare-pdf-view.html', pdf=f"https://csquare.in/downloads/netmeds/Winter_Care_{lang}.pdf", \
+        downloadFile=f"https://activity.netmedswholesale.com/assets/docs/Winter_Care_{lang}.pdf")
     # return send_from_directory("assets/docs", f"Winter_Care_{lang}.pdf")
 
