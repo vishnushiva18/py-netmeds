@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wintercare - Netmeds</title>
+
+    <style>
+        .div-a-list {
+            width: 55%;
+            border-bottom: inset;
+            height: 27px;
+            background-color: #ffffff;
+            border-radius: 25px;
+            margin-bottom: 7px;
+            padding: 3px 0 3px 0;
+        }
+
+        .div-a-list:hover {
+            background-color: #f3eded;
+        }
+
+        .div-a {
+            text-decoration: none;
+            /* font-size: 14px; */
+            color: black;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row" style="text-align: -webkit-center;">
+        <div
+            style="width: 359px; height: 624px; background-image: url(/assets/images/nm-wintercare-back.png);background-size: cover; background-repeat: no-repeat; object-fit: contain;">
+            <div style="padding-top: 280px">
+                {% for l in lang :%}
+                <div class="div-a-list">
+                    <a href="{{l.h}}" class="div-a">{{l.t}}</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

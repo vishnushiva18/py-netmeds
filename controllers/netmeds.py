@@ -1,5 +1,5 @@
 from flask import (render_template, request,
-                   url_for, redirect)
+                   url_for, redirect, send_from_directory)
 from pkg_imp import app, requests, MONGO_CSQUARE
 from PIL import Image, ImageDraw, ImageFont, ExifTags
 import base64, io, uuid, datetime
@@ -190,4 +190,43 @@ def netmeds_microsite_update():
     MONGO_CSQUARE.DB["netmeds_microsite_log"].insert_one(d)
 
     return {}
+
+@app.route('/wintercare', methods=['GET'])
+def netmeds_wintercare():
+    lang = [{
+        't': "Hindi | हिन्दी",
+        'h': "/wintercare/hindi"
+     },
+    # {
+    #     't': "Marathi | मराठी",
+    #     'h': "/netmeds/wecare/marathi"
+    # },
+    {
+        't': "Tamil | தமிழ்",
+        'h': "/wintercare/tamil"
+    },
+    {
+        't': "Malayalam | മലയാളം",
+        'h': "/wintercare/malayalam"
+    },
+    {
+        't': "Bangla | বাংলা",
+        'h': "/wintercare/bangla"
+    },{
+        't': "Kannada | ಕನ್ನಡ",
+        'h': "/wintercare/kannada"
+    },{
+        't': "Assamese | অসমীয়া",
+        'h': "/wintercare/assamese"
+    },{
+        't': "English",
+        'h': "/wintercare/english"
+    }]
+
+    return render_template('netmeds/wintercare.html', lang=lang)
+
+@app.route('/wintercare/<lang>', methods=['GET'])
+def netmeds_wintercare_lang(lang):
+    return render_template('netmeds/wintercare-pdf-view.html', lang=f"https://csquare.in/downloads/netmeds/Winter_Care_{lang}.pdf")
+    # return send_from_directory("assets/docs", f"Winter_Care_{lang}.pdf")
 
