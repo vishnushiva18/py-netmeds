@@ -1,5 +1,5 @@
 from flask import (render_template, request,
-                   url_for, redirect, send_from_directory)
+                   url_for, redirect, send_from_directory, session)
 from pkg_imp import app, requests, MONGO_CSQUARE
 from PIL import Image, ImageDraw, ImageFont, ExifTags
 import base64, io, uuid, datetime
@@ -191,43 +191,67 @@ def netmeds_microsite_update():
 
     return {}
 
-@app.route('/wintercare', methods=['GET'])
+@app.route('/wintercare', methods=['GET', 'POST'])
 def netmeds_wintercare():
-    lang = [{
-        't': "Hindi | हिन्दी",
-        'h': "/wintercare/hindi"
-     },
-    # {
-    #     't': "Marathi | मराठी",
-    #     'h': "/netmeds/wecare/marathi"
-    # },
-    {
-        't': "Tamil | தமிழ்",
-        'h': "/wintercare/tamil"
-    },
-    {
-        't': "Malayalam | മലയാളം",
-        'h': "/wintercare/malayalam"
-    },
-    {
-        't': "Bangla | বাংলা",
-        'h': "/wintercare/bangla"
-    },{
-        't': "Kannada | ಕನ್ನಡ",
-        'h': "/wintercare/kannada"
-    },{
-        't': "Assamese | অসমীয়া",
-        'h': "/wintercare/assamese"
-    },{
-        't': "English",
-        'h': "/wintercare/english"
-    }]
+    if request.method == "POST":
+        empId = request.form.get('empid')
+        mobile = request.form.get('mobile')
 
-    return render_template('netmeds/wintercare.html', lang=lang)
+        session['nm_activity'] = {
+            'empId': empId,
+            'mobile': mobile
+        } 
+        
+        lang = [{
+            't': "Hindi | हिन्दी",
+            'h': "/wintercare/hindi"
+        },{
+            't': "Tamil | தமிழ்",
+            'h': "/wintercare/tamil"
+        },{
+            't': "Malayalam | മലയാളം",
+            'h': "/wintercare/malayalam"
+        },{
+            't': "Bangla | বাংলা",
+            'h': "/wintercare/bangla"
+        },{
+            't': "Kannada | ಕನ್ನಡ",
+            'h': "/wintercare/kannada"
+        },{
+            't': "Assamese | অসমীয়া",
+            'h': "/wintercare/assamese"
+        },{
+            't': "Marathi | मराठी",
+            'h': "/netmeds/wecare/marathi"
+        },{
+            't': "English",
+            'h': "/wintercare/english"
+        }]
 
+        return render_template('netmeds/wintercare.html', lang=lang)
+
+    session['nm_activity'] = None
+    return render_template('netmeds/wintercare-form-input.html')
+    
 @app.route('/wintercare/<lang>', methods=['GET'])
 def netmeds_wintercare_lang(lang):
+    if not session.get('nm_activity'):
+        return redirect(url_for('netmeds_wintercare'))
+
+    session['nm_activity']['language'] = lang.strip()
+    d = {
+        'campaign': "wintercare",
+        'empid': session['nm_activity'].get('empId'),
+        'phone': session['nm_activity'].get('mobile'),
+        'time': datetime.datetime.utcnow()
+    }
+    
+    MONGO_CSQUARE.DB["netmeds_microsite_log"].insert_one(d)
+
     return render_template('netmeds/wintercare-pdf-view.html', pdf=f"https://csquare.in/downloads/netmeds/Winter_Care_{lang}.pdf", \
-        downloadFile=f"https://activity.netmedswholesale.com/assets/docs/Winter_Care_{lang}.pdf")
+        downloadFile=f"/assets/docs/Winter_Care_{lang}.pdf")
     # return send_from_directory("assets/docs", f"Winter_Care_{lang}.pdf")
 
+@app.route('/wintercare/clear', methods=['GET'])
+def netmeds_wintercare_clear():
+    return redirect(url_for('netmeds_wintercare'))

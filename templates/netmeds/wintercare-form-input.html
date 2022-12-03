@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wintercare - Netmeds</title>
+
+    <style>
+        .div-a-list {
+            width: 55%;
+            border-bottom: inset;
+            height: 27px;
+            background-color: #ffffff;
+            border-radius: 25px;
+            margin-bottom: 7px;
+            padding: 3px 0 3px 0;
+        }
+
+        .div-a-list:hover {
+            background-color: #f3eded;
+        }
+
+        .div-a {
+            text-decoration: none;
+            /* font-size: 14px; */
+            color: black;
+            font-weight: 600;
+        }
+
+        .text-input {
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 700;
+            /* background: url(paper.gif); */
+            background-position: left top;
+            background-repeat: repeat;
+            padding: 20px;
+            width: 180px;
+            height: 1px;
+        }
+
+        .button {
+            border-radius: 25px;
+            background: url(paper.gif);
+            background-position: left top;
+            background-repeat: repeat;
+            padding: 0;
+            width: 136px;
+            height: 32px;
+            border: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row" style="text-align: -webkit-center;">
+        <div
+            style="width: 359px; height: 624px; background-image: url(/assets/images/nm-wintercare-back-inputform.jpg);background-size: cover; background-repeat: no-repeat; object-fit: contain;">
+            <div style="padding-top: 320px">
+                <div>
+                    <form action="/wintercare" method="POST">
+                        <input class="text-input" type="text" id="empid" name="empid" value=""
+                            placeholder="Enter Your Employee ID" required><br>
+                        <input class="text-input" style="margin-top: 40px;" type="tel" id="mobile"
+                            name="mobile" placeholder="Enter Your Mobile No." pattern="[0-9]{10}" maxlength="10"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" required>
+                        <br>
+                        <input class="button" style="margin-top: 40px;" type="submit" value="">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
