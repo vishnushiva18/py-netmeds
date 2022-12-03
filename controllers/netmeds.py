@@ -222,7 +222,7 @@ def netmeds_wintercare():
             'h': "/wintercare/assamese"
         },{
             't': "Marathi | मराठी",
-            'h': "/netmeds/wecare/marathi"
+            'h': "/wintercare/marathi"
         },{
             't': "English",
             'h': "/wintercare/english"
